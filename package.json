@@ -1,0 +1,25 @@
+{
+  "name": "metcher",
+  "version": "1.0.0",
+  "description": "simple app for fetching latest medium posts and comments",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridhoperdana/metcher.git"
+  },
+  "author": "Ridho Perdana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ridhoperdana/metcher/issues"
+  },
+  "homepage": "https://github.com/ridhoperdana/metcher#readme"
+}
