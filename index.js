@@ -15,7 +15,48 @@ app.get('/medium/feed', async (req, res) => {
         return
     }
 
-    res.send(result)
+    const items = [];
+
+    result.forEach((value) => {
+        const item = `<div onclick="window.open('`+value.url+`');" class="card">
+            <div class="container">
+                <p>`+value.title+`</p>
+            </div>
+        </div>`;
+        items.push(item);
+    })
+
+    let template = `<!DOCTYPE html>
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                .card {
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                    transition: 0.3s;
+                    width: 40%;
+                    cursor: pointer;
+                }
+                
+                p {
+                    font: 200 18px 'Segoe UI', Ubuntu, Sans-Serif;
+                }
+        
+                .container {
+                    padding: 2px 16px;
+                }
+            </style>
+        </head>
+        <body>`
+
+    items.forEach((value) => {
+       template += value;
+    });
+
+    template += `</body>
+        </html>`;
+
+    res.send(template);
 })
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
