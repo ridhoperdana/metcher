@@ -3,6 +3,10 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.get('/', function(req, res) {
+    res.redirect('/medium/feed');
+});
+
 app.get('/medium/feed', async (req, res) => {
     const username = req.query.username;
     const num = req.query.num;
