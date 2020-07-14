@@ -13,7 +13,10 @@ const fetchPosts = async (username, num) => {
 
     const feed = [];
 
-    resultObject.rss.channel.item.forEach((item) => {
+    resultObject.rss.channel.item.forEach((item, index) => {
+        if (index+1 > num) {
+            return;
+        }
         feed.push({
             "title": item.title._cdata,
             "url": item.link._text,
