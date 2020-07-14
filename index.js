@@ -30,11 +30,7 @@ app.get('/medium/feed', async (req, res) => {
         items.push(item);
     })
 
-    let template = `<!DOCTYPE html>
-        <html>
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <style>
+    let template = `<style>
                 .card {
                     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
                     transition: 0.3s;
@@ -49,16 +45,11 @@ app.get('/medium/feed', async (req, res) => {
                 .container {
                     padding: 2px 16px;
                 }
-            </style>
-        </head>
-        <body>`
+            </style>`
 
     items.forEach((value) => {
        template += value;
     });
-
-    template += `</body>
-        </html>`;
 
     res.send(template);
 })
